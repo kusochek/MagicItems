@@ -1,14 +1,14 @@
 import React from 'react';
 import NavPanel from './components/navPanel';
-import ListItem from './components/listItems';
+import ListItems from './components/ ListItems';
 import Paper from '@material-ui/core/Paper';
-import { isTemplateElement } from '@babel/types';
+
 
 export default function App(props) {
 
   const loadItems = () => props.items
     .map(item => (
-      <ListItem
+      <ListItems
       id={item.id}
       name={item.name}
       type={item.type}
@@ -20,7 +20,7 @@ export default function App(props) {
   <Paper>
     <NavPanel />
     <Paper>
-      {loadItems()}
+    {loadItems()}
     </Paper>
   </Paper>
   )

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({id, name, quality, description}) => {
+export default ({id, type, name, quality, description}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -37,8 +37,7 @@ export default ({id, name, quality, description}) => {
   };
 
   return (
-    <div className={classes.root} key={id}>
-      <ExpansionPanel className={classes.panel} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <ExpansionPanel className={classes.panel} key={id} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
@@ -60,6 +59,5 @@ export default ({id, name, quality, description}) => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-    </div>
   );
 }
