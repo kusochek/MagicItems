@@ -2,12 +2,12 @@ import React from 'react';
 import NavPanel from './components/navPanel';
 import ListItems from './components/ ListItems';
 import Paper from '@material-ui/core/Paper';
+import { connect } from 'react-redux';
 
+function App(props) {
 
-export default function App(props) {
-
-  const loadItems = () => props.items
-    .map(item => (
+  const loadItems = () => 
+    this.props.listStore.map(item => (
       <ListItems
       id={item.id}
       name={item.name}
@@ -19,9 +19,17 @@ export default function App(props) {
   return (
   <Paper>
     <NavPanel />
-    <Paper>
+    <div>
     {loadItems()}
-    </Paper>
+    </div>
   </Paper>
   )
 }
+
+
+export default connect(
+  state => ({
+    listStore: state
+  }),
+  dispatch => ({})
+)(App);

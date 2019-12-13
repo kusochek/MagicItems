@@ -6,6 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -46,16 +47,15 @@ export default ({id, type, name, quality, description}) => {
           <Typography className={classes.heading}>
             {name}
           </Typography>
-          <Typography className={classes.secondaryHeading}><b>Тип:</b> 
+          <Typography className={classes.secondaryHeading}><b>Тип: </b> 
             {type}
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.detail}>
-          <Typography className={classes.heading}><b>Особенность:</b> 
+          <Typography className={classes.heading}><b>Особенность: </b> 
             {quality}
           </Typography>
-          <Typography>
-            {description}
+          <Typography dangerouslySetInnerHTML={{ __html: description }}>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
